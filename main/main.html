@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ <section class="main-container">
+    <div class="scores">
+         <p class="userScore">Score : 2</p>
+         <p class="computerScore">Score : 2</p>
+    </div>
+    <div class="displayWinner">
+      <h1 class="remark">It's a tie</h1>
+    </div>
+    <div class="mainContainer">
+        <div class="userSide">
+          <img src="../img/paper.png" alt="paper" id="paper" class="choice">
+          <img src="../img/rock.png" alt="paper" id="rock" class="choice">
+          <img src="../img/scissors.png" alt="paper" id="scissors" class="choice">
+        </div>
+        <div class="computerSide"></div>
+    </div>
+
+    <div class="identifiers">
+      <p class="user">Take your pick</p>
+      <p class="computer">Opponent made a pick</p>
+    </div>
+    
+    <div class="btnContainer">
+      <button class="startGame">PLAY AGAIN</button>
+    </div>
+
+    <button onclick="openModal()">Open Modal</button>
+
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <p class="reward">Congratulations</p>
+  </div>
+</div>
+
+ </section>
+  <footer>
+    <p class="frock">Rock-Paper-Scissors Game</p>
+    <p>&copy;2023, Design by LiNCOLN</p>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

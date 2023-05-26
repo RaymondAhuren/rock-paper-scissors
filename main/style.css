@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+    text-decoration: none;
+}
+body{
+    background: #40c9ff;
+}
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn 0.3s ease-in-out;
+    text-align: center;
+  }
+  .userSide{
+    display: inline-flex;
+  }
+  .userSide img{
+      
+    width: 100%;
+}
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%;
+    max-width: 600px;
+    animation: slideIn 0.3s ease-in-out;
+  }
+  
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideIn {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  .btnContainer button{
+      background-color: wheat;
+      padding: 5px;
+      color;
+      font-weight: bold;
+      cursor: pointer;
+
+  }
+  footer{
+      font-size: 16px;
+      padding: 4px;
+      background: white;
+  }
+  @media only screen and (max-width: 600px) {
+    .modal-content {
+      margin: 20px;
+      padding: 10px;
+    }
+    .scores{
+        padding: 40px;
+        display: flex;
+        justify-content: space-between;
+    }
+    .userSide{
+        position: absolute;
+        right:9rem;
+        display: inline-flex;
+        
+        
+    }
+    .mainContainer{
+        display: flex;
+        padding: 2px;
+        
+    }
+    .userSide{
+        width: 50%;
+       
+    }
+    .computerSide{
+        width: 50%;
+        height: 130px;
+      
+    }
+    .userSide img{
+        width: 50%;
+        padding: 0.5rem;
+        
+    }
+    .identifiers{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 50px;
+    }
+    .btnContainer{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 30px;
+    }
+    .btnContainer button{
+       
+    }
+    footer{
+        position: absolute;
+        top: 30rem;
+        right: 5rem;
+     
+    }
+    .mainContainer{
+        padding-top: 90px;
+    }
+    .remark{
+        text-align: center;
+       
+        
+    }
+    
+   
+  }
+    
