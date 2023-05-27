@@ -6,22 +6,24 @@ const computer = document.querySelector(".computer");
 const remark = document.querySelector(".remark");
 const playAgain = document.querySelector(".startGame");
 
-choices.forEach(choice => choice.addEventListener("click", playGame));
-playAgain.addEventListener("click", restartGame);
-
-const scoreboard = {
+let scoreboard = {
   player: 0,
   computer: 0,
-  playagain: "Score: 0"
 };
 
+let audio = document.getElementById("clapping-sound");
+
 function playSound() {
-  const audio = document.getElementById("clapping-sound");
   audio.play();
 }
 
+function pauseSound() {
+  audio.pause();
+  audio.currentTime = 0;
+}
+
 function playGame(e) {
-  if(scoreboard.player < 5) {
+  if (scoreboard.player < 5) {
     const userChoice = e.target.id;
     const computerChoice = ["scissors", "paper", "rock"];
     const randomChoiceIndex = Math.floor(Math.random() * computerChoice.length);
@@ -43,10 +45,16 @@ function playGame(e) {
       if (scoreboard.player === 5) {
         remark.textContent = "You won the game!";
         playSound();
+        openModal();
       }
     } else {
       remark.textContent = "Computer wins!";
-      computerScore.textContent = "Score: " + (++scoreboard.player);
+      computerScore.textContent = "Score: " + (++scoreboard.computer);
+      if (scoreboard.player === 5) {
+        remark.textContent = "You won the game!";
+        playSound();
+        openModal();
+      }
     }
   }
 }
@@ -59,8 +67,12 @@ function restartGame() {
   remark.textContent = "";
   user.textContent = "";
   computer.textContent = "";
+  closeModal();
+  pauseSound();
 }
 
+choices.forEach(choice => choice.addEventListener("click", playGame));
+playAgain.addEventListener("click", restartGame);
 
 function openModal() {
   document.getElementById("myModal").style.display = "block";
@@ -69,3 +81,5 @@ function openModal() {
 function closeModal() {
   document.getElementById("myModal").style.display = "none";
 }
+
+

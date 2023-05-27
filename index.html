@@ -5,27 +5,173 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ROCK PAPER SCISSORS</title>
-    <link rel="stylesheet" href="style.css">
+  
+    <style>
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom right, #ff9a9e, #fad0c4);
+            font-family: Arial, sans-serif;
+        }
+
+        .loading-spinner {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .modal {
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .modal-content {
+           
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .show-modal .modal-content {
+            opacity: 1;
+        }
+
+        .modal p {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #258cd1;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #333;
+            padding: 0px;
+            color: #fff;
+            text-align: center;
+            font-size: 14px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            animation: slide-in 0.5s ease;
+        }
+        .game {
+    animation: fadeIn 2s ease-in;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .owner {
+    animation: slideIn 2s ease-in;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+        
+    </style>
 </head>
 <body>
     <section>
-        <div class="container">
-            <p>Welcome to the thrilling world of Rock, Paper, Scissors! 
-                Get ready to engage in a battle of wits and strategy as
-                 you try to outsmart your opponent. With
-                just three simple choices, the possibilities are 
-                endless.
-            </p>
-            <p>Will you go for the sturdy rock, the swift paper, 
-                or the daring scissors? The excitement builds as you
-                 anticipate your opponent's move and strategize your 
-                 next play. So brace yourself, sharpen your instincts,
-                  and let the games begin! Good luck, and may the best 
-                  strategist prevail 
-                in this classic game of Rock, Paper, Scissors!
-            </p>
+        <div class="loading-spinner"></div>
+
+        <div class="modal hidden">
+            <div class="modal-content">
+                <p>Welcome to the thrilling world of Rock, Paper, Scissors! 
+                    Get ready to engage in a battle of wits and strategy as
+                    you try to outsmart your opponent. With
+                    just three simple choices, the possibilities are 
+                    endless.
+                </p>
+                <p>Will you go for the sturdy rock, the swift paper, 
+                    or the daring scissors? The excitement builds as you
+                    anticipate your opponent's move and strategize your 
+                    next play. So brace yourself, sharpen your instincts,
+                    and let the games begin! Good luck, and may the best 
+                    strategist prevail 
+                    in this classic game of Rock, Paper, Scissors!
+                </p>
+            </div>
         </div>
-        <button><a href="./main/main.html">GET STARTED</a></button>
+
+        <button id="getStartedBtn" class="hidden"><a href="./main/main.html">GET STARTED</a></button>
     </section>
+
+    <div class="footer">
+        <p class="game">Rock-Paper-Scissors Game</p>
+        <p class="owner">&copy;2023, Design by LiNCOLN</p>.
+    </div>
+
+    <script>
+        setTimeout(showContent, 3000);
+
+        function showContent() {
+            const spinner = document.querySelector('.loading-spinner');
+            const modal = document.querySelector('.modal');
+            const getStartedBtn = document.querySelector('#getStartedBtn');
+
+            modal.classList.remove('hidden');
+            spinner.classList.add('hidden');
+            getStartedBtn.classList.remove('hidden');
+            modal.classList.add('show-modal');
+        }
+    </script>
 </body>
 </html>

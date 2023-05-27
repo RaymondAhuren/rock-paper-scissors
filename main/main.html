@@ -8,46 +8,54 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <section class="main-container">
-    <div class="scores">
-         <p class="userScore">Score : 0</p>
-         <p class="computerScore">Score : 0</p>
-    </div>
-    <div class="displayWinner">
-      <h1 class="remark">It's a tie</h1>
-    </div>
-    <div class="mainContainer">
-        <div class="userSide">
-          <img src="../img/paper.png" alt="paper" id="paper" class="choice">
-          <img src="../img/rock.png" alt="paper" id="rock" class="choice">
-          <img src="../img/scissors.png" alt="paper" id="scissors" class="choice">
+   <section class="main-container">
+  
+      <div class="scores">
+           <p class="userScore">Score: 0</p>
+           <p class="computerScore">Score: 0</p>
+      </div>
+      
+  
+      <div class="displayWinner">
+        <h1 class="remark">It's a tie</h1>
+      </div>
+  
+      <div class="mainContainer">
+          <div class="userSide">
+            <img src="../img/paper.png" alt="paper" id="paper" class="choice">
+            <img src="../img/rock.png" alt="paper" id="rock" class="choice">
+            <img src="../img/scissors.png" alt="paper" id="scissors" class="choice">
+          </div>
+          <div class="computerSide">
+            <div class="spinner"></div>
+            <div class="loading hidden"></div>
+          </div>
+      </div>
+  
+      <div class="identifiers">
+        <p class="user">Take your pick</p>
+        <p class="computer">Opponent made a pick</p>
+      </div>
+      
+      
+  
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <p class="reward">Congratulations!</p>
+          <p class="reward-message"></p>
         </div>
-        <div class="computerSide"></div>
-    </div>
-
-    <div class="identifiers">
-      <p class="user">Take your pick</p>
-      <p class="computer">Opponent made a pick</p>
-    </div>
-    
-    <div class="btnContainer">
-      <button class="startGame">PLAY AGAIN</button>
-    </div>
-
-    <button onclick="openModal()">Open Modal</button>
-
-<div id="myModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <p class="reward">Congratulations</p>
+        <div class="btnContainer">
+          <button class="startGame">PLAY AGAIN</button>
+        </div>
+      </div>
+   </section>
   </div>
-</div>
- </section>
- <audio id="clapping-sound" src="../img/y2mate.com - Clapping Sound Effects.mp3" ></audio>
-  <footer>
-    
+ <audio id="clapping-sound" src="../img/y2mate.com - Clapping Sound Effects.mp3"></audio>
+ 
+ <footer>
     <p class="frock">Rock-Paper-Scissors Game</p>
-    <p>&copy;2023, Design by LiNCOLN</p>
+    <p class="copyright">&copy;2023, Design by LiNCOLN</p>
   </footer>
   <script src="script.js"></script>
 </body>

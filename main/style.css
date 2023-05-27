@@ -1,14 +1,194 @@
-*{
-    padding: 0;
-    margin: 0;
+* {
     box-sizing: border-box;
-    list-style-type: none;
-    text-decoration: none;
-}
-body{
-    background: #40c9ff;
-}
-.modal {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: yellow;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  } */
+
+  footer{
+      display: none;
+  }
+  
+  .scores{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .displayWinner {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  .remark {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .userSide,
+  .computerSide {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  
+  .userSide img,
+  .computerSide img {
+    width: 100px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .userSide img:hover,
+  .computerSide img:hover {
+    transform: scale(1.1);
+  }
+  
+  /* .computerSide {
+    justify-content: flex-end;
+    position: relative;
+  } */
+  
+  /* .computerSide img {
+    opacity: 0;
+    animation: fade-in 0.5s forwards;
+  } */
+  
+  /* @keyframes fade-in {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  } */
+  
+  .identifiers{
+    display: flex;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+  }
+  .user{
+      float: left;
+  }
+  .identifiers p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* .startGame {
+    background-color: #333;
+    color: #fff;
+    padding: 0.75rem 1.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  } */
+  
+  /* .startGame:hover {
+    background-color: #555;
+  }
+   */
+
+   .frock {
+    animation: fadeIn 2s ease-in;
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  .copyright {
+    animation: slideIn 2s ease-in;
+  }
+
+  @keyframes slideIn {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* New styles for modal and animations */
+  
+
+  
+  /* section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  } */
+  
+  .container {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .container p {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #333;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #258cd1;
+  }
+  
+  .modal {
     display: none;
     position: fixed;
     z-index: 1;
@@ -18,24 +198,17 @@ body{
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
-    animation: fadeIn 0.3s ease-in-out;
-    text-align: center;
   }
-  .userSide{
-    display: inline-flex;
-  }
-  .userSide img{
-      
-    width: 100%;
-}
+  
   .modal-content {
     background-color: #fefefe;
-    margin: 10% auto;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 90%;
-    max-width: 600px;
-    animation: slideIn 0.3s ease-in-out;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
   }
   
   .close {
@@ -43,6 +216,9 @@ body{
     float: right;
     font-size: 28px;
     font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
     cursor: pointer;
   }
   
@@ -53,35 +229,61 @@ body{
     cursor: pointer;
   }
   
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
+  .reward {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .reward-message {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .animated {
+    animation-duration: 1s;
+    animation-fill-mode: both;
+  }
+  
+  .bounce {
+    animation-name: bounce;
+  }
+  
+  .bounceInDown {
+    animation-name: bounceInDown;
+  }
+  
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
     }
-    to {
-      opacity: 1;
+    40% {
+      transform: translateY(-30px);
+    }
+    60% {
+      transform: translateY(-15px);
     }
   }
   
-  @keyframes slideIn {
-    from {
-      transform: translateY(-100%);
+  @keyframes bounceInDown {
+    0% {
+      opacity: 0;
+      transform: translateY(-2000px);
     }
-    to {
+    60% {
+      opacity: 1;
+      transform: translateY(30px);
+    }
+    80% {
+      transform: translateY(-10px);
+    }
+    100% {
       transform: translateY(0);
     }
-  }
-  .btnContainer button{
-      background-color: wheat;
-      padding: 5px;
-      color;
-      font-weight: bold;
-      cursor: pointer;
-
-  }
-  footer{
-      font-size: 16px;
-      padding: 4px;
-      background: white;
   }
   @media only screen and (max-width: 600px) {
     .modal-content {
@@ -89,7 +291,7 @@ body{
       padding: 10px;
     }
     .scores{
-        padding: 40px;
+        padding: 20px;
         display: flex;
         justify-content: space-between;
     }
@@ -100,6 +302,13 @@ body{
         
         
     }
+    footer{
+        display: block;
+        text-align: center;
+        position: absolute;
+        bottom: 10px;
+        right: 150px; 
+      }
     .mainContainer{
         display: flex;
         padding: 2px;
@@ -107,6 +316,7 @@ body{
     }
     .userSide{
         width: 50%;
+        position: fixed;
        
     }
     .computerSide{
@@ -134,9 +344,8 @@ body{
        
     }
     footer{
-        position: absolute;
-        top: 30rem;
-        right: 5rem;
+    text-align: center;
+    padding: 10px;
      
     }
     .mainContainer{
@@ -145,7 +354,7 @@ body{
     .remark{
         text-align: center;
        
-        
+      
     }
     
    
